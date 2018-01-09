@@ -1,0 +1,4 @@
+print("""It's Friday night and like every night, you're at home playing video games watching videos, and getting obese with some 'healthy' food.\n
+your best friend decides that you actually need a life and party during your senior year and drags you to a house party that's being thrown by\n one of the most popular kids in school.
+When you arrive at the doorstep with your extroverted friend, he/she immediately ditches you and goes to a sketchy punch bowl. You know that you won't be seeing him/her for a while.
+You know that if you leave now that your friend will murder you, so your only""")
