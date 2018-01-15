@@ -4,10 +4,35 @@ class people():
 
     def __init__(self, name, description, response):
         #Initializing new instance of Character class
-        #Assigning parameters in the given function that belong to class Group On
+        #Assigning parameters in the given function that belong to class people
         self.name = name
         self.description = description
         self.response = response
+
+class health():
+    # Creation of class health for the purpose of having initial value for Social Health
+
+
+    def __init__(points, life):
+        #Initializing new instance of health class
+        #Assigning parameters in the given function that belong to class health
+        points.life = life
+
+
+Social_life = health(int(100))
+# Assigning variable to be set to equal the health class
+
+def healthbar():
+    # Creation of a function that keeps track of health points
+    Social_life.life = Social_life.life - random.randint(1,20)
+    #Takes initial life points and subtracts it by random integer creating a new life value
+    if Social_life.life > 0:
+        print(f"Your Social life is currently at {Social_life.life}")
+        # Game continues if life is > 0
+    elif Social_life.life <= 0:
+        print("Rip, the party was too much for an antisocial loser like you! You lose!")
+        # Game ends if life is less than or equal to 0
+
 
 Karen = people("Karen", "the snobby, popular, and annoying pretty girl who's fake and gossips.", "Oh hi Player.What are you doing here... especially with that outfit?")
 Brittney = people("Brittney", "Karen's follower and idiot friend", "Why are you talking to us?")
@@ -20,14 +45,6 @@ Rihanna = people("Rihanna", "a hot headed stubborn girl on the basketball team",
 Marie = people("Marie", "a fellow loner and introvert who was also dragged her against her will. She's also in your art class", "Oh...hello there.")
 # Assigning names, characteristics and messages for people in class people
 
-
-Social_Life = 100
-def life():
-    Social_Life = 100
-    Social_Life -= random.randint(0-20)
-    print(f"Your social life health is now at {Social_Life}")
-    return
-# Create function that tracks your life
 # Create variables inside class people named 'Karen' and 'Brittney'
 
 print("""It's Friday night and like every night, you're at home playing video games watching videos, and getting obese with some 'healthy' food.
@@ -73,15 +90,15 @@ choice_one = "Pretend to commit seppuku right then and there \nwhile dropping to
 choice_two = "apologize like crazy and hand them some napkins."
 # setting up variables for the whole game
 def scenario():
-    print(f"While getting a drink, you quickly turn around and bump into someone. That person is now drenched. FRICK IT'S YOUR CRUSH! {Crush.description} and now you've just ruined their clothes.]\nYou want to commit seppuku and are extremely embarrassed. Minus __ points.")
-    # INSERT MINUS POINTS HEREEEEE
+    print(f"While getting a drink, you quickly turn around and bump into someone. That person is now drenched. FRICK IT'S YOUR CRUSH! {Crush.description} and now you've just ruined their clothes.]\nYou want to commit seppuku and are extremely embarrassed. You're losing points dude.")
+    healthbar()
 
 
     choice = str(input(f"What do you do? Choice one: {choice_one} or Choice two: {choice_two} (type answer in form of Choice_one or Choice_two)")).lower()
     # Creation of input function that allowers user to input their choice
     if choice == "choice_one":
     # If choice one is chosen-- the action that occurs
-        print("Your crush begins to laugh at first but then helps you up. You apologize sheepishly and he/she forgives you. You can't believe you just did that\n in front of him/her. Minus ___ points")
+        print("Your crush begins to laugh at first but then helps you up. You apologize sheepishly and he/she forgives you. You can't believe you just did that\n in front of him/her. You lose points.")
     elif choice == "choice_two":
         print(f"Your crush is completely cool with it and says everything is fine.\n {Crush.response} You respond with a yes. After he/she cleans up, the two of you begin to talk. Good job! You saved the situation!")
     print("Yikes, some person showed up and is trying to hit on your crush. You flip a coin to see what you should do.")
@@ -111,8 +128,9 @@ def scenario():
 
 
     if heads > tails:
-        print("You decide to leave them alone dammit! THEY'RE GETTING ALONG TOO! FRICKKJLKA! WHY YOU A FRIGGIN WIMP!? Minus ___ points.")
+        print("You decide to leave them alone dammit! THEY'RE GETTING ALONG TOO! FRICKKJLKA! WHY YOU A FRIGGIN WIMP!? YOU LOSE POINTS!")
         #Condition if heads are greater than tails. Loss of life points
+        healthbar()
         # INSERT LIFE HEREEEE
         print("Feeling a bit awkward and lonely, you decide to wander off for a bit and see another loner like you j chillin outside on the steps.")
 
@@ -213,8 +231,8 @@ if group == 'group_1':
     elif answer == "two":
         print("It was honestly worth fighting them; now everyone is watching you in either disbelief or respect.\n You're getting embarassed and lose ___ points. \n You decide to hide out with the food")
     #If-elif used over here to demonstrate the different scenarios
-    # INSERT CALCULATION OF LIFE
-        scenario()
+    healthbar()
+    scenario()
         # Use of function scenario()
 
 
@@ -222,9 +240,9 @@ if group == 'group_1':
 
 elif group == 'group_2':
 # Scenario for group 2
-    print("Now you look like a loner and feel awkward as heck. Menos ___ puntos.\n Time to stress eat! You're now going to the food area.")
+    print("Now you look like a loner and feel awkward as heck. Menos puntos!\n Time to stress eat! You're now going to the food area.")
+    healthbar()
     #lose points HERE CREATE FUNCTION TO CALCULATE THE NEW LIFE POINT
-    print(f"While getting a drink, you quickly turn around and bump into someone. That person is now drenched. FRICK IT'S YOUR CRUSH! {Crush.description} and now you've just ruined their clothes.]\nYou want to commit seppuku and are extremely embarrassed. Minus __ points.")
     # Describes the situation with crush and who they are
     # INSERT MINUS POINTS HEREEEEE
     scenario()
@@ -280,6 +298,7 @@ else:
                             print("You see a couple making out, and your heart can't take the awkwardness and pda! You take cover and dash to the food.\nRip you lose some points.")
                             scenario()
                             # Scenario of what happens if you go outside with the input of location and then user leaving to go get food, proceeding with scenario function
+                            healthbar()
                             # insert loss of life
                         elif location == "dance":
                             print("You made it to the dance floor... but wait!\nTHEY'RE PLAYING A SLOW SONG AND YOU'RE SOMEHOW IN THE MIDDLE OF THE ROOM AND CAN'T ESCAPE! WHAT DO YOU DO?!")
@@ -287,8 +306,8 @@ else:
                             # Prompts user for input of whether or not they should dance if they choose to go to the dance floor
                             if a == "slow":
                                 print("you can feel people staring at you from a distance with pity. You single asl kid.")
+                                healthbar()
                                 # if user decides to slow dance with his or her self, he or she loses points
-                                # MINUS POINTS
                                 print("Someone takes pity and offers to dance with you. Do you accept or decline?")
                                 dance = str(input("Accept or decline?")).lower()
                                 # Situation where someone wants to dance with user and user must accept or decline
@@ -324,6 +343,7 @@ else:
 
             elif dare == "no":
                 print("They all make fun of you and roast you so hard. Boi you looking like a peewee mothertruckin rawr xD weaboo lookin butt chicken naruto running weirdo.\n You sir, are indeed embarrassed. Feel the little social life that you had in the first place decrease.")
+                healthbar()
                 # INSERT LOSS OF LIFE HEREE
                 print("Sigh... you go to the snack bar because food is your only friend at the moment.")
                 scenario()
@@ -332,6 +352,7 @@ else:
 
     elif invite == "no":
         print("They think your a wuss and are making fun of you. Rip you feel so pressured and embarrassed.\n Taking some damage already mate. In the end they somehow how force you to play and make you go first.")
+        healthbar()
         # INSERT LOSS OF LIFE HEREE
         game = str(input("Truth or Dare?")).lower()
         # Game of truth or dare is still played even if user says no
@@ -342,11 +363,11 @@ else:
             print(f"Lauren asks you who would you kiss out of {partypeople}")
             # Lauren prompts user with a question
             kiss = partypeople[int(input("Pick number from -15 to 15"))]
-            print(f"You chose {kiss} and now everyone is making fun of you for it. Yikes that's so awkward for you. Minus ___ points man.")
+            print(f"You chose {kiss} and now everyone is making fun of you for it. Yikes that's so awkward for you. You lose some points man.")
             #User blindly chooses who they would kiss with a number
+            healthbar()
             # INSERT LOSS OF LIFE
             print("To avoid more awkwardness you get up to get a drink")
-    # INSERT MINUS POINTS HEREEEEE
             scenario()
             # Game proceeds with scenario function
 
@@ -361,7 +382,7 @@ else:
                 # User can insert their rap here
                 print("Your rap wasn't fire enough. There was no applause. In fact, people yell at you to get off the stage. \nRip you. Your social life goes down")
                # Player loses points because their rap wasn't good enough
-                # INSERT NEGATIVO LIFEARUUU
+                healthbar()
                 again = str(input("You wanna try rapping again? (yes or no)")).lower()
                 # Player can try again if they wish
                 if again == "yes":
@@ -374,8 +395,10 @@ else:
                         print("You had a great time with Marie and you became friends with her!\nYou spend the rest of the night hanging with her. Hooray you survived!")
                     else:
                         print("You give her the cold shoulder... damn you're heartless and rude just for that I'm subtracting points from your life.\n Why don't you just go get food you jerk!")
+                        healthbar()
+                        # Loss of life points
                         scenario()
-                        # INSERT LOSS OF LIFE POINTS
+
 
 
                     # Player loses points for action
