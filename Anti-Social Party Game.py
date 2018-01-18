@@ -24,7 +24,7 @@ Social_life = health(int(100))
 
 def healthbar():
     # Creation of a function that keeps track of health points
-    Social_life.life = Social_life.life - random.randint(1,20)
+    Social_life.life = Social_life.life - random.randint(1,25)
     #Takes initial life points and subtracts it by random integer creating a new life value
     if Social_life.life > 0:
         print(f"Your Social life is currently at {Social_life.life}")
@@ -34,18 +34,21 @@ def healthbar():
         # Game ends if life is less than or equal to 0
 
 
-Karen = people("Karen", "the snobby, popular, and annoying pretty girl who's fake and gossips.", "Oh hi Player.What are you doing here... especially with that outfit?")
+Karen = people("Karen", "the snobby, popular, and annoying pretty girl who's fake and gossips.", "Oh hi Player. What are you doing here... especially with that outfit?")
 Brittney = people("Brittney", "Karen's follower and idiot friend", "Why are you talking to us?")
-Crush = people("Crush", "the person you've liked since the beginning of freshman year. You're not even sure if he/she notices your existence.", "Thanks! You're Player right?")
-Viktor = people("Viktor", "a senior who's really down to earth. He's popular because he has a kind heart and is chill with everyone. He's in some of your classes but you haven't really talked to him.", "Hey, you're in my Calc class! You're Player, right?")
+Crush = people(f"Crush", "the person you've liked since the beginning of freshman year. You're not even sure if he/she notices your existence.", "Thanks! You're Player right?")
+Viktor = people(f"Viktor", "a senior who's really down to earth. He's popular because he has a kind heart and is chill with everyone. He's in some of your classes but you haven't really talked to him.", "Hey, you're in my Calc class! You're Player, right?")
 Lauren = people("Lauren", "a cute quiet girl from your math class.", "What's up?")
 Jake = people("Jake", "who claims not to be from Statefarm and does not wear khakis", "Yooooo")
 Dave = people("Dave", "a guy you see around in the hallways", "Sah dude?")
 Rihanna = people("Rihanna", "a hot headed stubborn girl on the basketball team", "Hey.")
 Marie = people("Marie", "a fellow loner and introvert who was also dragged her against her will. She's also in your art class", "Oh...hello there.")
+Mark = people("Mark", "he's the grade's class clown but is really cringey. He always makes things interesting though.", "What up Player!")
+Jeff = people("Jeff", "the stereotypical good-looking and dumb quarterback of the football team. He has a lot of anger issues and overreacts to everything, but is somehow popular.", "*he's currently flirting with a cheerleader*")
 # Assigning names, characteristics and messages for people in class people
 
 # Create variables inside class people named 'Karen' and 'Brittney'
+bets = {"bet 1": "Tackle Jeff, " + Jeff.description, "bet 2": "Mark: Bet you won't make out with me right now."}
 
 print("""It's Friday night and like every night, you're at home playing video games watching videos, and getting obese with some 'healthy' food.
 
@@ -58,26 +61,18 @@ You know that if you leave now that your friend will murder you, so your only op
 
 # PROMPT
 
-
-partypeople = ['Jay', 'Nadine', 'Brandon', 'John', 'Karen','Crush', 'Rihanna', 'Lauren', 'Jake', 'Viktor', 'Marie', 'Emma', 'Liz', 'Harry', 'Mat', 'Tyrone']
-# Creation of a list of people that are at the party for the purpose of detail
+partypeople = ['Jay', 'Nadine', 'Brandon', 'John', 'Karen', 'Rihanna', 'Lauren', 'Jake', 'Marie', 'Emma', 'Harry']
 
 burn = ['Justin', 'Kyle', 'Stephanie', 'Elena', 'Amanda']
 # List of people player hates
 print("Your social life is currently at 100.")
 # Inital status of social life
 
-groups = {"group_1" : "The popular girl group", "group_2" : "The lonely emo corner", "group_3" : "People playing a bunch of dumb high school games" }
+groups = {"group_1" : "The popular girl group",  "group_2" : "People playing a bunch of dumb high school games" }
 # create a dictionary listing the groups/choices in the game
 
 
-print("You notice that while you're standing in the middle of the living room, people from school start to encircle you, violating your personal bubble.\n Before doing anything you list some of your classmates' names.")
-for item in partypeople:
-    print(item)
-#creation of for loop to print out every item in partypeople list
-
-
-print(f"You see {groups}")
+print(f"You see {groups} which one would you like to join?")
 # Tells you which grouups are there
 
 
@@ -89,11 +84,12 @@ choice_one = "Pretend to commit seppuku right then and there \nwhile dropping to
 
 choice_two = "apologize like crazy and hand them some napkins."
 # setting up variables for the whole game
+
+
 def scenario():
     print(f"While getting a drink, you quickly turn around and bump into someone. That person is now drenched. FRICK IT'S YOUR CRUSH! {Crush.description} and now you've just ruined their clothes.]\nYou want to commit seppuku and are extremely embarrassed. You're losing points dude.")
     healthbar()
-
-
+    #input the healthbar function into scenario function so that healthbar decreases throughout game
     choice = str(input(f"What do you do? Choice one: {choice_one} or Choice two: {choice_two} (type answer in form of Choice_one or Choice_two)")).lower()
     # Creation of input function that allowers user to input their choice
     if choice == "choice_one":
@@ -101,7 +97,7 @@ def scenario():
         print("Your crush begins to laugh at first but then helps you up. You apologize sheepishly and he/she forgives you. You can't believe you just did that\n in front of him/her. You lose points.")
     elif choice == "choice_two":
         print(f"Your crush is completely cool with it and says everything is fine.\n {Crush.response} You respond with a yes. After he/she cleans up, the two of you begin to talk. Good job! You saved the situation!")
-    print("Yikes, some person showed up and is trying to hit on your crush. You flip a coin to see what you should do.")
+    print("Yikes, some person showed up and is trying to hit on your crush. You flip a coin three times to see what you should do.")
     # If choice two is chosen, a message comes up with a new scenario where you have to flip a coin
     tries = 0
     heads = 0
@@ -109,7 +105,7 @@ def scenario():
     # Creates variables of heads, tails, and tries
     while tries <= 2:
     #Creation of while loop for 3 toin tosses
-        input("Flip the coin!")
+        input("Flip the coin! (type 'flip')")
         tries += 1
         coin = random.randint(1, 2)
         #Adds the tries to tries intial and sets coin equal to random integer of 1 or 2
@@ -120,7 +116,7 @@ def scenario():
             print(f"You got heads!")
         # sets condition if coin == 1
         if coin == 2:
-            heads += 1
+            tails += 1
             print(f"You got tails!")
         #sets condition if coin == 2 and breaks
             break
@@ -156,7 +152,7 @@ def scenario():
             elif dance == "flip":
                 # Tells story if action flip is chosen
                 print("You're actually an idiot. What made you think that you could do a backflip? You fricking tried and then landed so badly that you passed out and broke a leg\n  You had to be brought to the hospital and you kinda killed the mood of the party. THAT'S AN L, LIKE THE REST OF YOUR LIFE BECAUSE YOU LOSE!")
-                print("Get rekted you weeb. Game over.")
+                print("Get rekted. Game over.")
 
 
         elif convo == "convo2":
@@ -169,6 +165,24 @@ def scenario():
     elif tails > heads:
         #If tails > heads its the end of the game and player wins
         print("You pull your crush to the side and get that person to leave your crush alone. \n Congrats dude! You got some alone time with him/her! In fact, you actually hit it off pretty well and even got his/her number!\n You just won the game! I'm proud of you you nerd!!!")
+        return
+
+def bet():
+    print(f"Unfortunately you bump into {Mark.name}, {Mark.description}. Mark: Bet you won't do: {bets}. Oh shiz man he bet you gotta do it now. \nWhich one do you choose?")
+    betting = input("bet1, bet2, or leave in fear (answer as bet1, bet2 or leave)?").lower()
+    if betting == "bet1":
+        print("You tackle Jeff and now you gotta face his fury! Do you run or fight?")
+        fight = input("fight or run?").lower()
+        if fight == "fight":
+            print("Jeff knocks you out and you're sent to the hospital with a broken nose, arm, and leg. GG mate.")
+        elif fight == "run":
+            print("You decide to hide out with the food for a bit while avoiding Jeff.\n You were almost a goner and now everyone is talking about you. You lose some points.")
+            healthbar()
+            scenario()
+    elif betting == "bet2":
+        print(f"Dude Mark was just playing. No one actually wants to make out with your ugly face.\n Now the whole party is a bit weirded out by you. Yikes...go hide with the food man.")
+        healthbar()
+        scenario()
         return
 
 
@@ -223,30 +237,23 @@ if group == 'group_1':
                 # Ends game if the user says yes
             else:
                 print("Because you stood there for too long, contemplating your choices you get pushed into the middle of a dance circle. What do you do?")
-                # If user says no, a dance scenario is brought up
+                dancecircle = input("Cry or dance?").lower()
+                if dancecircle == "dance":
+                    print("Dude you were dancing too hard and knocked everyone at the party out... what the frick???\nI mean i guess you're free to leave now so I guess that's a dub on you.")
+                elif dancecircle == "cry":
+                    print("Everyone slowly walks away from you because they don't know what's wrong with you, nor do they care.\n Why did you even cry in the first place?? Just get some food and walk it off soldier I won't deduct points out of pity.")
+                    scenario()
+                # If user says no, a dance scenario is brought up and game may possibly end
 
 
 
 
     elif answer == "two":
-        print("It was honestly worth fighting them; now everyone is watching you in either disbelief or respect.\n You're getting embarassed and lose ___ points. \n You decide to hide out with the food")
+        print("It was honestly worth fighting them, however,now everyone is staring you in either disbelief or respect.\n You're getting embarassed and lose points. \n You decide wander somewhere else")
     #If-elif used over here to demonstrate the different scenarios
     healthbar()
-    scenario()
+    bet()
         # Use of function scenario()
-
-
-
-
-elif group == 'group_2':
-# Scenario for group 2
-    print("Now you look like a loner and feel awkward as heck. Menos puntos!\n Time to stress eat! You're now going to the food area.")
-    healthbar()
-    #lose points HERE CREATE FUNCTION TO CALCULATE THE NEW LIFE POINT
-    # Describes the situation with crush and who they are
-    # INSERT MINUS POINTS HEREEEEE
-    scenario()
-    # use of function scenario()
 
 
 else:
@@ -258,9 +265,12 @@ else:
         print("A few rounds have passed and now it's your turn, so what's it going to be? Truth or dare?")
         game1 = str(input("Truth or Dare?")).lower()
         # Asks user for input
+        if game1 == "truth":
+            print("Rihanna: Here's a truth for you, we want you to leave.\n Damn they just kicked you out...yikes...guess you're getting food now.")
+            scenario()
 
 
-        if game1 == "dare":
+        elif game1 == "dare":
             print("They dare you to lick the bottom of all of their shoes. Do you do it?")
             dare = str(input("yes or no?")).lower()
             # Asks user for input
@@ -275,78 +285,31 @@ else:
                         # Describes situation. User must guess secret number in order for the loop to break
                         tape = str(input("Accept or deny?")).lower()
                         if tape == "accept":
-                            print("You're now taped onto the wall. They won't let you down until you guess the secret number.")
-                            number = 9
-                            while True:
-                                if int(input("Guess the number from 1-10.")) == number:
-                                    print("You guessed the secret number! They let you go!")
-                                    break
-                                if int(input("Guess the number from 1-10.")) != number:
-                                    print("That wasn't the secret number. You're still stuck on the wall ya loser.")
-                            print("You decide that you've had enough of truth or dare and just want some food and drinks.")
-                            # While loop is used. While true the loop will continue until user guesses secret number 9
-                            scenario()
+                            print("You're now taped onto the wall.\nThey forget about you and leave you there for the rest of the night...rip GG mate")
+
                             # Game goes with the scenario function
                     if dare2 == "truth":
                         print("Rihanna: Is it true that you were most likely to: 'suck eggs' in high school.")
                         # Gives scenario for dare2 if truth is chosen as option. A Truth question is given, asking user for input
                         input("A response")
                         # Regardless of response, story continues onto dance floor scenario
-                        print("You had quite enough of those weirdos. Now you wonder where you should go. Outside or to the dance floor?")
-                        location = str(input("Outside or Dance?")).lower()
-                        if location == "outside":
-                            print("You see a couple making out, and your heart can't take the awkwardness and pda! You take cover and dash to the food.\nRip you lose some points.")
-                            scenario()
-                            # Scenario of what happens if you go outside with the input of location and then user leaving to go get food, proceeding with scenario function
-                            healthbar()
-                            # insert loss of life
-                        elif location == "dance":
-                            print("You made it to the dance floor... but wait!\nTHEY'RE PLAYING A SLOW SONG AND YOU'RE SOMEHOW IN THE MIDDLE OF THE ROOM AND CAN'T ESCAPE! WHAT DO YOU DO?!")
-                            a = str(input("Slow dance with yourself? or Aggressively dance? (answer with slow or aggresive)")).lower()
-                            # Prompts user for input of whether or not they should dance if they choose to go to the dance floor
-                            if a == "slow":
-                                print("you can feel people staring at you from a distance with pity. You single asl kid.")
-                                healthbar()
-                                # if user decides to slow dance with his or her self, he or she loses points
-                                print("Someone takes pity and offers to dance with you. Do you accept or decline?")
-                                dance = str(input("Accept or decline?")).lower()
-                                # Situation where someone wants to dance with user and user must accept or decline
-                                if dance == "accept":
-                                    print("Woah this person is super cool! You have a lot in common with him/her!\n Do you hang out with him/her for the rest of the night?")
-                                    stranger = str(input("yes or no?")).lower()
-                                # Describes scenario with stranger
-                                    if stranger == "yes":
-                                        print("OH SHIZZ! Looks like that person has a jealous significant other who is a martial artist! Do you start drama or leave?")
-                                        drama = str(input("start drama or leave?")).lower()
-                                        # Asks player for his or her decision
-                                        if drama == "start drama":
-                                            print("Game over man that other kid knocked you out for the rest of the night.")
-                                            # Game over if user chooses to start drama with the significant other.
-                                        if drama == "leave":
-                                            print("you decide to duck and leave and head for the snack table because nothing bad happens with food!")
-                                            scenario()
-                                        # If player leaves, the story proceeds with scenario function
-                                    elif stranger == "no":
-                                        print("You go get food instead")
-                                        scenario()
-                                        # Story proceeds with scenario function
-                                elif dance == "decline":
-                                    print("You say no and just awkwardly stand there until the song changes.\n Now it's a fast paced song! Which move do you bring out?")
-                                    input("Dance move?")
-                                    # Asks user for what dance they want to do
-                                    print("Whatever you did... it was kinda decent. No points lost, but now you're hungry and want some food so let us go to the kitchen!")
-                                    scenario()
-                                    # regardless of user's choice, story proceeds with scenario function
-                            elif a == "aggressive":
-                                print("Wow... people actually started to join you in your aggresive dancing... Y'all are memes. GJ though, you're a trend setter.\n Oh well, you survived the rest of the party just by dancing so congrats to ou i guess...I kinda wished you failed...")
+                        print("You had quite enough of those weirdos and decide to go dancing")
+                        input("Dance move?")
+                        # Asks user for what dance they want to do
+                        print("Whatever you did... it was kinda decent. No points lost, but now you're hungry and want some food so let us go to the kitchen!")
+                        scenario()
+                elif next == "go":
+                    print("You excuse yourself to get some food.")
+                    scenario()
+
                             # End of game, user wins
 
             elif dare == "no":
                 print("They all make fun of you and roast you so hard. Boi you looking like a peewee mothertruckin rawr xD weaboo lookin butt chicken naruto running weirdo.\n You sir, are indeed embarrassed. Feel the little social life that you had in the first place decrease.")
                 healthbar()
                 # INSERT LOSS OF LIFE HEREE
-                print("Sigh... you go to the snack bar because food is your only friend at the moment.")
-                scenario()
+                print("Sigh... you go wander off to avoid everyone.")
+                bet()
                 # Story proceeds with scenario function
 
 
@@ -383,36 +346,16 @@ else:
                 print("Your rap wasn't fire enough. There was no applause. In fact, people yell at you to get off the stage. \nRip you. Your social life goes down")
                # Player loses points because their rap wasn't good enough
                 healthbar()
-                again = str(input("You wanna try rapping again? (yes or no)")).lower()
-                # Player can try again if they wish
-                if again == "yes":
-                    input("""Begin rapping""")
-                    # Player can rap again
-                    print("Wow that was even worse than the last one! You lose even more points!\n Are you crying yet? Anyways, let's proceed with the game.")
-                    print(f"""You see a girl who was keeping to herself. You go up to her and it turns out that its Marie, {Marie.description}.\n Marie: {Marie.response}""")
-                    introvert = input("Do you talk to her? Yes or no?").lower()
-                    if introvert == "yes":
-                        print("You had a great time with Marie and you became friends with her!\nYou spend the rest of the night hanging with her. Hooray you survived!")
-                    else:
-                        print("You give her the cold shoulder... damn you're heartless and rude just for that I'm subtracting points from your life.\n Why don't you just go get food you jerk!")
-                        healthbar()
-                        # Loss of life points
-                        scenario()
-
-
-
-                    # Player loses points for action
-                elif again == "no":
-                    print("Do you wanna scream XD into the mic just to piss them off though?")
-                    # PLayer is given a choice to scream XD at party
-                    XD = str(input("yes or no?")).lower()
-                    if XD == "yes":
-                        print("Congrats you pissed everyone off... they even tell you to leave the party\n... Rip... at least you can go home and watch some Netflix and eat some food.")
-                        # Game ends because player pisses everyone at party off
-                    elif XD == "no":
-                        print("Fine go get some food instead you boring human.")
-                        scenario()
-                        # If player says no, story proceeds with scenario function
+                print(f"""You see a girl who was keeping to herself. You go up to her and it turns out that its Marie, {Marie.description}.\n Marie: {Marie.response}""")
+                introvert = input("Do you talk to her? Yes or no?").lower()
+                if introvert == "yes":
+                    print("You had a great time with Marie and you became friends with her!\nYou spend the rest of the night hanging with her. Hooray you survived!")
+                else:
+                    print("You give her the cold shoulder... damn you're heartless and rude just for that I'm subtracting points from your life.\n Why don't you just go get food you jerk!")
+                    healthbar()
+                # Loss of life points
+                    scenario()
+                # Proceeds to scenario function
 
             elif challenge == "rejected":
                 print("Everyone in the group kicks you out because you're no fun. Great now what are you going to do?")
