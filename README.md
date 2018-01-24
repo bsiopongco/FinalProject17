@@ -8,3 +8,5 @@ situations such as talking to new people, talking to his/her crush, bumping into
 or getting hit on. With each situation that is met the player will be given a set of choices that are each valued differently.
 For example, one choice will be worth 0, another is -10, another -20. Based on the player's choice, his/her social meter/ health bar will go down by that value.
 The point of the game is to complete all of the situations without their social meter going down to 0.
+
+URL to flowchart: https://www.draw.io/#G1Pyqg9s2zSHMnswnS7JEnKaRjdXSTh0dq
