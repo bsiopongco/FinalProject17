@@ -1,4 +1,5 @@
 import random
+# importing random function
 class people():
 # creation of class people with characteristics of names, descriptions and responses
 
@@ -50,23 +51,31 @@ Jeff = people("Jeff", "the stereotypical good-looking and dumb quarterback of th
 # Create variables inside class people named 'Karen' and 'Brittney'
 bets = {"bet 1": "Tackle Jeff, " + Jeff.description, "bet 2": "Mark: Bet you won't make out with me right now."}
 
-print("""It's Friday night and like every night, you're at home playing video games watching videos, and getting obese with some 'healthy' food.
+print("""It's Friday night and like every night, you're at home playing video games, watching videos, and getting obese with some 'healthy' food.
 
-Your best friend decides that you actually need a life and party during your senior year and drags you to a house party that's being thrown by\n one of the most popular kids in school.
+Your best friend decides that you actually need a life and need to party during your senior year, so he/she drags you to a house party that's being thrown by\n one of the most popular kids in school.
 
 When you arrive at the doorstep with your extroverted friend, he/she immediately ditches you and goes to a sketchy punch bowl. You know that you\n won't be seeing him/her for a while.
 
-You know that if you leave now that your friend will murder you, so your only option is to stay until the party ends. You feel your heart start to\n pound... your worst nightmare is coming true
-...social interaction.""")
+You also know that if you leave now, your friend will murder you, so your only option is to stay until the party ends.
 
-# PROMPT
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+You feel your heart start to\n pound... your worst nightmare is coming true
+...social interaction.
+...
+...
+...
+Your 'Social Life' bar is currently at 100.""")
+
+# Prompt of story and current status of player
 
 partypeople = ['Jay', 'Nadine', 'Brandon', 'John', 'Karen', 'Rihanna', 'Lauren', 'Jake', 'Marie', 'Emma', 'Harry']
 
 burn = ['Justin', 'Kyle', 'Stephanie', 'Elena', 'Amanda']
 # List of people player hates
-print("Your social life is currently at 100.")
-# Inital status of social life
 
 groups = {"group_1" : "The popular girl group",  "group_2" : "People playing a bunch of dumb high school games" }
 # create a dictionary listing the groups/choices in the game
@@ -97,13 +106,15 @@ def scenario():
         print("Your crush begins to laugh at first but then helps you up. You apologize sheepishly and he/she forgives you. You can't believe you just did that\n in front of him/her. You lose points.")
     elif choice == "choice_two":
         print(f"Your crush is completely cool with it and says everything is fine.\n {Crush.response} You respond with a yes. After he/she cleans up, the two of you begin to talk. Good job! You saved the situation!")
-    print("Yikes, some person showed up and is trying to hit on your crush. You flip a coin three times to see what you should do.")
+    print("Yikes, some person showed up and is trying to hit on your crush. You flip a coin a few times to see what you should do.")
     # If choice two is chosen, a message comes up with a new scenario where you have to flip a coin
+
+
     tries = 0
     heads = 0
     tails = 0
     # Creates variables of heads, tails, and tries
-    while tries <= 2:
+    while tries <= 3:
     #Creation of while loop for 3 toin tosses
         input("Flip the coin! (type 'flip')")
         tries += 1
@@ -118,8 +129,9 @@ def scenario():
         if coin == 2:
             tails += 1
             print(f"You got tails!")
+        break
         #sets condition if coin == 2 and breaks
-            break
+
 
 
 
@@ -151,7 +163,7 @@ def scenario():
                 print("Oh no you're cringey asl, but everyone is having a good time and laughs.\n Some people even join you! You get some popularity points for that buddy! You just dance and talk to people for the rest of the night! YOU SURVIVED!")
             elif dance == "flip":
                 # Tells story if action flip is chosen
-                print("You're actually an idiot. What made you think that you could do a backflip? You fricking tried and then landed so badly that you passed out and broke a leg\n  You had to be brought to the hospital and you kinda killed the mood of the party. THAT'S AN L, LIKE THE REST OF YOUR LIFE BECAUSE YOU LOSE!")
+                print("You're actually an idiot. What made you think that you could do a backflip? You fricking tried and then landed so badly that you passed out and broke a leg\n  You had to be brought to the hospital and you kinda killed the mood of the party. THAT'S AN L, LIKE THE REST OF YOUR LIFE! YOU LOSE!")
                 print("Get rekted. Game over.")
 
 
@@ -164,12 +176,12 @@ def scenario():
 
     elif tails > heads:
         #If tails > heads its the end of the game and player wins
-        print("You pull your crush to the side and get that person to leave your crush alone. \n Congrats dude! You got some alone time with him/her! In fact, you actually hit it off pretty well and even got his/her number!\n You just won the game! I'm proud of you you nerd!!!")
+        print("You pull your crush to the side and get that person to leave your crush alone. \n Congrats dude! You got some alone time with him/her! In fact, you actually hit it off pretty well and even got his/her number!\n You just won the game! I'm proud of you, you nerd!!!")
         return
 
 def bet():
-    print(f"Unfortunately you bump into {Mark.name}, {Mark.description}. Mark: Bet you won't do: {bets}. Oh shiz man he bet you gotta do it now. \nWhich one do you choose?")
-    betting = input("bet1, bet2, or leave in fear (answer as bet1, bet2 or leave)?").lower()
+    print(f"Unfortunately you bump into {Mark.name}, {Mark.description}. Mark: Bet you won't do: {bets}. Oh shiz, man, he bet you. You gotta do it now, or else you'll look weak. \nWhich one do you choose?")
+    betting = input("bet1, or bet2 (answer as bet1 or bet2)?").lower()
     if betting == "bet1":
         print("You tackle Jeff and now you gotta face his fury! Do you run or fight?")
         fight = input("fight or run?").lower()
@@ -249,7 +261,7 @@ if group == 'group_1':
 
 
     elif answer == "two":
-        print("It was honestly worth fighting them, however,now everyone is staring you in either disbelief or respect.\n You're getting embarassed and lose points. \n You decide wander somewhere else")
+        print("It was honestly worth fighting them, however, now everyone is staring at you in either disbelief or respect.\n You're getting embarassed and lose points. \n You decide wander somewhere else")
     #If-elif used over here to demonstrate the different scenarios
     healthbar()
     bet()
@@ -267,7 +279,9 @@ else:
         # Asks user for input
         if game1 == "truth":
             print("Rihanna: Here's a truth for you, we want you to leave.\n Damn they just kicked you out...yikes...guess you're getting food now.")
+            health()
             scenario()
+            # inputs health function to lose points then scenario function to continue the game
 
 
         elif game1 == "dare":
@@ -325,7 +339,7 @@ else:
 
             print(f"Lauren asks you who would you kiss out of {partypeople}")
             # Lauren prompts user with a question
-            kiss = partypeople[int(input("Pick number from -15 to 15"))]
+            kiss = partypeople[int(input("Pick number from -11 to 10"))]
             print(f"You chose {kiss} and now everyone is making fun of you for it. Yikes that's so awkward for you. You lose some points man.")
             #User blindly chooses who they would kiss with a number
             healthbar()
