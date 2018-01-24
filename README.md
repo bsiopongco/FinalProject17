@@ -13,3 +13,5 @@ I used classes to create some of the responses and descriptions of the character
 
 
 link to flow chart: https://www.draw.io/#G1Pyqg9s2zSHMnswnS7JEnKaRjdXSTh0dq
+link to game: https://www.pythonanywhere.com/user/RawrXD/files/home/RawrXD/FinalProject17/Anti-Social%20Party%20Game.py?edit
+link to slides:https://docs.google.com/presentation/d/1PQkC4jSMJuS08ipuMXAZm7vW28TRrLzp9506QNewNhw/edit#slide=id.g3278083fce_0_64
